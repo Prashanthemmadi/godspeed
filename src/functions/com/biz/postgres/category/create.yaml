@@ -1,0 +1,22 @@
+summary: Create Category
+tasks:
+  - id: postgres_category_create
+    fn: com.gs.datastore
+    args:
+      datasource: postgres
+      data:
+        data: <% inputs.body %>
+      config:
+        method: Category.create 
+  - id: transform_task 
+    fn: com.gs.transform
+    args: |
+      <%
+      return {
+      data:{
+      name: outputs.postgres_category_create.data.name,
+      message: 'id is removed by transform in step 2.'
+      },
+      code: 200
+      }
+      %>

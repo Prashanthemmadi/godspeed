@@ -1,0 +1,8 @@
+log_level: info
+lang: coffee
+httpbin:
+  base_url: https://httpbin.org
+jwt:
+  iss: ms.godspeed.systems
+  aud: godspeed.systems 
+  secretOrKey: testKey 
